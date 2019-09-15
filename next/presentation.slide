@@ -1,0 +1,50 @@
+Go_Next
+
+* Exercise One
+Fizzbuzz
+Write a code which accepts an integer and returns
+- "fizz" if the number is divisible by 3
+- "buzz" if the number is divisible by 5
+- "fizzbuzz" if the number is divisible by BOTH 3 and 5
+- otherwise it just returns the string version of the number, e.g., "4"
+
+Test your function with a range of number from 1-25
+
+* Exercise Two
+Process Monitor
+- write code to poll the processes running on your system
+- poll should take place every 10 seconds
+- results should be displayed to console
+- consider packages: time, context, os/exec, log, strings, glog
+
+* Exercise Three
+Markdown Processor
+- Write a markdown parser 
+- Define interface types to map to each markdown element (not necessary to map all elements)
+- Code a parse method to create an intermediate representation tree of the markdown text
+- Code a render/writeto capability to output to html
+- output to file
+
+* Exercise 4 
+With so many logger options, we need a new Logger
+- Write a new logging utility
+- Support WARN/INFO/TRACE/ERROR loggin levels
+- Provide ability to change loggin levels
+- Provide configurations to determine log to file/console or both
+
+* Exercise 5
+Write a web crawler
+- parse all HREFs found
+- determine if each link is valid or not
+- put resusults in a map 
+- make the solution utilize go routines
+- use a publisher/subscriber mechanism to have one thread read the data and the other creating the output
+
+
+* Exercise 6 
+Provide a programmatic simulation of a burger joint
+- workers are a waiters/cooks
+- waiters take orders/cooks cook orders
+- use a publisher/subscriber pattern for routine communication (e.g. Channels)
+- cooks can only cook 300 hamburgers before they go off shift and a new cook takes their place
+- the order queue can only be 5 orders

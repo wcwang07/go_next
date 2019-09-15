@@ -17,7 +17,6 @@ func init() {
 	flag.Set("logtostderr", "true")
 	flag.Set("stderrthreshold", "WARNING")
 	flag.Set("v", "2")
-	// This is wa
 	flag.Parse()
 }
 
