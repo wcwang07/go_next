@@ -1,0 +1,30 @@
+A Course
+Title of document
+15:04 2 Jan 2006
+Tags: foo, bar, baz
+
+John Kidd
+President, Kiddcorp LP
+jkidd@kiddcorp.com
+http://www.kiddcorp.com
+@jwkidd3
+
+* Slide One
+
+- One
+- Two
+- Three
+this is additional text
+
+
+- More
+- More more
+
+* Slide
+
+.code -edit -numbers src/closechannel.go
+
+.link http://www.kiddcorp.com kiddcorp
+
+* Slide Two
+.code  src/defer.go

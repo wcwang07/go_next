@@ -1,0 +1,21 @@
+
+Concurrency Labs
+
+* Lab1 Description
+
+Update your imlmentation of the website crawler
+- make the solution multi-threaded
+- use a publisher/subscriber mechanism to have one thread read the data and the other creating the output
+
+
+* Lab2 Description
+
+Implement the code, threading model, for the following
+- automation of a hamburger joint
+- workers are a waiters/cooks
+- waiters take orders/cooks cook orders
+- use a publisher/subscriber pattern for thread communication (e.g. Channels)
+- cooks can only cook 300 hamburgers before they go off shift and a new cook takes their place
+- the order queue can only be 5 orders
+
+

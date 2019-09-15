@@ -1,0 +1,18 @@
+Networking
+
+* Building an http client
+- use the http package
+- very similar to other languages
+- http package privdes all convienience methods needed
+
+* Basic Http Client
+
+.code -edit src/nethttp.go 
+
+* Exercise: Http Client
+
+- Create a basic site map discovery utility.   
+- The site map utility should generate a text file containing all of the domain-specific URLs found on a given website. 
+- Associated with each domain, should be a indicator denoting whether the URL was accessible. 
+- The site map utility does not need to track images, only <a href> tags.  
+- When all of the <a href>s are processed, the application should generate a text file and then shut-down gracefully.  
