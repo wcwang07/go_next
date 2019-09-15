@@ -1,11 +1,7 @@
-Golang Fundamentals
+Golang 
 "Go is expressive, concise, clean, and efficient"
 
-
-
-* Overview
-
-* Objective
+* Introductions
 
 - Name
 - Job Role
@@ -25,14 +21,6 @@ Golang Fundamentals
 - ...all three were not available in the same language!
 
 Programmers were choosing ease over safety and efficiency by moving to dynamically typed languages (e.g., Python and JavaScript) rather than C++ or, to a lesser extent, Java
-
-* "Did the C++ committee really believe that was wrong with C++ was that it didn't have enough features?" –Rob Pike
-
-* "Clumsy type systems drive people to dynamically typed languages" -Robert Griesemer
-
-* "False dichotomy of static languages being 'slow and painful' and dynamic languages being 'fast and fun'" –Rob Pike
-
-* "Old programs read like quiet conversations between a well-spoken research worker and a well-studied mechanical colleague, not as a debate with a compiler. Who'd have guessed sophistication bought such noise?" -Dick Gabriel
 
 * Philosophy
 
@@ -165,7 +153,7 @@ go tool
 many editors have Golang plugins
 
 - MacVim
-- Atom
+- Visual Studio Code   **Yes a microsoft product
 - Sublime
 - Eclipse
 - ...remember that Golang's philosophy is that IDEs are not required
@@ -412,13 +400,6 @@ _much_ _better_ than fmt, but somewhat lacking as loggers go
 
 .code src/example.go
 
-* Exercise: Packages
-
-- create your own package in your `$GOROOT` directory
-- be sure to export at least one function and one constant
-- build and install your package (go install)
-- write a program in different subdirectory which makes use of your package
-
 * Possibly Painful Pedantry?
 - Go complains about unused variables and imports
 - ...and the Go compiler has no warnings
@@ -456,17 +437,9 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 .play src/multiple.go
 
-* Exercise: Functions
-
-- write a function called `circleinfo` which accepts a float64 radius and returns two values, the area of the circle, and the circumference
-- area = PI * radius * radius
-- circumference = PI * radius * 2 
-- PI is defined in the math package
-
 * More About Return Values
 - you can name the return values
 - ...but I don't recommend it
-- *EDIT* *THE* *CODE* to remove the named return values and be sure it still runs properly
 
 .play -edit src/named.go
 
@@ -551,13 +524,6 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 - of course we wouldn't use the intermediate variable `ptr_to_val`, it's there for instructive purposes
 
-* Exercise: Pointers and Functions
-
-Write a function `doubler` which takes an integer argument and doubles it
-
-- your function should not return anything, it should modify its argument directly
-- write a main program to test your function
-
 * Functions as Arguments
 
 .play src/funcasarg.go
@@ -571,12 +537,6 @@ Write a function `doubler` which takes an integer argument and doubles it
 - we can't run these in the playground–we need to compile and run locally, then pass command-line args
 
 .code src/clargs.go
-
-* Exercise: Command Line Args
-
-- write a program which takes two command line args representing integers and prints out their sum
-- test it on your machine since it won't run in the playground
-- hint: remember Atoi in the `strconv` package (https://golang.org/pkg/strconv)
 
 * Interactive User Input
 - `fmt` package contains `Scan`, `Scanf`, `Scanln` functions to read from keyboard
@@ -597,12 +557,6 @@ Write a function `doubler` which takes an integer argument and doubles it
 - one exception: the verb %c always scans the next char in the input, even if it is a space (or tab etc.) or newline
 
 .code src/input3.go
-
-* Exercise: strconv
-
-- read in a string from the user
-- convert it to int using `strconv.Atoi()`
-- don't forget to check for errors!
 
 * Control Structures
 
@@ -648,17 +602,6 @@ Write a function `doubler` which takes an integer argument and doubles it
 
 .play -edit src/switch5.go /START OMIT/,/END OMIT
 
-* Exercise: Fizzbuzz
-
-Write a function which accepts an integer and returns
-
-- "fizz" if the number is divisible by 3
-- "buzz" if the number is divisible by 5
-- "fizzbuzz" if the number is divisible by BOTH 3 and 5
-- otherwise it just returns the string version of the number, e.g., "4"
-
-Test your function with these inputs: 3, 5, 15, 4
-
 * for Loop
 
 Go only has one looping construct
@@ -673,20 +616,6 @@ basic for loop looks as it does in C/C++/Java, except
 
 .play -edit src/for.go /START OMIT/,/END OMIT
 
-* Exercise: for Loops
-
-implement a square root function using Newton's method:
-
-- starting with some guess for the square root of x, we can adjust it based on how close guess² is to x, producing a better guess:
-
-- guess = guess − (guess² − x) / (2 * guess)
-
-- repeating the above makes the guess better and better
-
-- use a starting guess of 1.0, regardless of the input (it works quite well)
-
-- repeat the calculation 10 times and print each guess along the way
-
 * for Loop: Empty Pre Statement
 
 .play -edit src/for2.go
@@ -695,25 +624,11 @@ implement a square root function using Newton's method:
 
 .play -edit src/for3.go
 
-* Exercise: for Loop as while Loop
-
-- modify your square root function such that the loop terminates once the value has stopped changing (or only changes by a very small amount)
-
-- see how many iterations it takes
-
-- how close are your function's results to `math.Sqrt` in the standard library?
-
 * for loop as Infinite Loop
 
 - as we are no doubt used to from other languages, we can break out of the enclosing loop with the keyword `break` 
 
 .play -edit src/for4.go
-
-* Exercise: for Loop as Infinite Loop
-
-- combine the `strconv` exercise with an infinite loop so your code reads a line of input from the user, expecting it to be an integer 
-- if you can't convert to an integer, print an error message and prompt the user again
-- stop when the user complies
 
 * continue Statement
 
@@ -773,13 +688,6 @@ three rules
 - deferred functions may read/assign to the returning function's named return values
 
 .play -edit src/defer.go /START OMIT/,/END OMIT/
-
-* Exercise: defer
-
-- write a program which repeatedly asks to enter a word
-- your program should quit when the user enters "quit"
-- if the length of the word is even, your program should print the word out
-- if the length of the word is odd, your program should defer the printing of the word
 
 * panic
 
@@ -905,15 +813,6 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 
 .play -edit src/slice4.go /START OMIT/,/END OMIT/
 
-* Exercise: Slices
-
-1. write a function `minmaxavg` which accepts a float64 slice and returns three values, the minimum value in the slice, the maximum value in the slice, and the average of all the values
-2. write a function `fib` that returns a slice containing the first n Fibonacci numbers
-
-- the Fibonacci sequence is 1, 1, 2, 3, 5, 8...
-- each number is the sum of the previous Fibonacci numbers
-- so `fib(6)` should return an int slice of size 6 containing 1, 1, 2, 3, 5, 8
-
 * Maps
 
 - Go’s built-in associative datatype (like Python dictionaries)
@@ -956,21 +855,6 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - the second value is the rune itself
 
 .play -edit src/range5.go /START OMIT/,/END OMIT/
-
-* Exercise: Maps
-- use a map to translate Roman numerals into their Arabic equivalents
-- load the map with Roman numerals M (1000), D (500), C (100), L (50), X (10), V (5), I (1)
-- read in a Roman numeral
-- print Arabic equivalent
-- try it with MCLX = 1000 + 100 + 50 + 10 = 1160
-- EXTRA: if you have time, deal with the case where a smaller number precedes a larger number, e.g., XC = 100 - 10 = 90, or MCM = 1000 + (1000-100) = 1900
-
-* Additional Exercise: Maps
-- create four calculator functions: add, sub, mul, div
-- each function should take 2 integers and return an integer result
-- create a map which maps the strings representing the operators to the _functions_ 
-- that is, "+" would be mapped to `add()`, "-" would be mapped to `sub()`...
-- have your program read in lines like "2 + 4" and have it determine the result by parsing the line and then using the operator ("+" in this case) to find the appropriate function to invoke
 
 * sort Package
 - methods are specific to builtin type
@@ -1275,17 +1159,6 @@ here's a generic measure function which works on any geometry
 
 .play -edit src/stringer.go /START OMIT/,/END OMIT/
 
-* Exercise: Stringers
-
-Given the following type:
-
- type IPAddr [4]byte
-
-1. Define a map which maps hostnames (string) to `IPAddr`
-2. Add a few hostnames to your map, e.g., "localhost.com" (the addresses don't have to be correct)
-3. Add a `Stringer` method to `IPAddr` so that it is printed out in dotted notation (e.g., "127.0.0.1")
-4. Test your code in the playground or locally
-
 * Error Handling
 
 * Error Handling
@@ -1322,11 +1195,6 @@ Given the following type:
 - if you need to access the data in a custom error, you need to use type assertion in order to get the error as an instance of your custom error:
 
 .play -edit src/error3.go /START OMIT/,/END OMIT/
-
-* Lab: Error Handling
-- modify your square root function from earlier to return a custom error as well as the square root
-- test it with a main program that sends a valid argument as well as an invalid argument
-- access the fields of the custom error programmatically using type assertion
 
 * Error Handling: Best Practices
 always check for errors, not just when you expect them
@@ -1378,15 +1246,6 @@ know when to panic:
 - substitute `os.Stdin` to read from standard input
 
 .play -edit src/scan.go /START OMIT/,/END OMIT/
-
-* Exercise: Reading from Files
-- write a Go program to read a file and count the number of occurrences of each word in the file
-- use a `map` indexed by word, to count the occurrences
-- treat *The* and *the* as the same word when counting
-- print out words and counts, from most common to least common
-- EXTRA: remove punctuation, so *Hamlet,* == *Hamlet*
-- NOTE: the `strings` package has several functions that will be helpful
-.link http://bit.ly/BillShak Test on Shakespeare's Hamlet
 
 * Concurrency
 
@@ -1474,13 +1333,6 @@ Go includes low-level concurrency primitives as well, but you often need not con
 
 .play -edit src/channel.go /START OMIT/,/END OMIT/
 
-* Exercise: Relay Race
-- write a program to simulate a relay race with 4 runners
-- create a func called `runner` with an int channel as a parameter
-- the function should receive the "baton" via that channel (in reality it will receive a runner number, from 1-4)
-- once the baton is received, it will print a message saying "Runner x is running" and then it will fire off the next goroutine representing the next runner in line
-- when runner 4 receives the baton, it is the last runner, so it should not fire off another goroutine
-
 * Buffered Channels
 - channels are unbuffered by default, i.e., they only accept a send operation if there is a corresponding receive operation ready to receive the data
 - buffered channels receive and hold send ops without a corresponding receiver
@@ -1546,11 +1398,6 @@ we need to be able to time out if
 
 .play -edit src/rangeonchannel.go /START OMIT/,/END OMIT/
 
-* Exercise: Select/Concurrency
-- modify the previous Fibonacci example to use an unbuffered channel, rather than a buffered channel
-- add a second unbuffered channel called `quit`, which is used by the fibonacci routine to know there is no more work to (in other words, fibonacci should listen for a message on the `quit` channel, and if it receives the message, it should stop generating Fibonacci numbers)
-- the above means that the fibonacci function will no longer have a loop from 1 to 10
-
 * Signal Handling
 - sometimes we’d like our programs to intelligently handle Linux signals
 - e.g., want a server to gracefully shut down when it receives a SIGTERM
@@ -1562,11 +1409,6 @@ we need to be able to time out if
 - a `sync.WaitGroup` waits for a collection of goroutines to finish
 
 .play -edit src/waitingforgo.go /START OMIT/,/END OMIT/
-
-* Exercise: Waiting for Goroutines
-- create 25 goroutines, each of which sleeps a random number of seconds before completing
-- after sleeping, the go routine should print a message like _Goroutine_ _n_ _done_ where n is the number of the goroutine
-- when all 25 are done, the main program should notify you that all goroutines have finished
 
 * More Interesting Example
 - go get a bunch of URLs
@@ -1653,13 +1495,6 @@ among the most common/most difficult to debug issues in concurrent systems
  PASS
  ok      stack    0.006s
 
-* Exercise: Testing
-add additional methods to the Stack module:
-- `Top`: returns the top element but does not remove it
-- `IsEmpty`: return a Boolean indicating whether stack is empty
-- `Size`: returns number of elements on stack (could be used by IsEmpty)
-- add tests for each of these methods
-
 * "Example" Tests
 - like unit tests, but instead of verifying the results of tests programmatically, it verifies the output of the test
 - the correct output lives in comments after the commands
@@ -1692,11 +1527,6 @@ add additional methods to the Stack module:
      // 3
      // 0
  }
-
-* Exercise: Example Tests
-- write a Golang program that takes a string message such as "Hello from Hyderabad", splits it into words, and then enters the words as keys in a map (the values are up to you)
-- iterate through the map and output the keys, which will be in a random order
-- write an "example" test to ensure the output is correct
 
 * Test Coverage
 - test coverage refers to the percentage of statements in your code that are executed by your tests
@@ -1872,11 +1702,6 @@ aim for 100% coverage
  }
 
  
- 
- 
- 
-  
- .
 
 .link https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go How to Write Benchmarks in Go
 
@@ -2050,6 +1875,3 @@ the above comment is a complete sentence, beginning with the name of the element
 .link https://golang.org/doc/effective_go.html Effective Go
 .link https://blog.golang.org/concurrency-is-not-parallelism Concurrency is not Parallelism
 .link https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html Less is Exponentially More
-
-#* after Closing Channels
-#-Do we need to add Timers/Tickers/Worker Pools? Perhaps.
