@@ -6,10 +6,6 @@ all: fmt test build
 run: build
 	./$(APP)
 
-.PHONY: doc
-doc:
-	godoc -http=:6060 -index
-
 .PHONY: build
 build:
 	go build -o $(APP) -v ./...

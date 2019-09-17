@@ -2,7 +2,6 @@ package main
 
 import "fmt"
 
-
 type Cleaner interface {
 	Clean() bool
 }
@@ -10,17 +9,16 @@ type Cleaner interface {
 type Eraser interface {
 	Erase() bool
 }
+
 // Type Embedding
 type Destroyer interface {
 	Cleaner
 	Eraser
 }
 
-// Pointer to pointer to string Left -> Right
-type PPS = **string
-type WebController struct {}
+type WebController struct{}
 
-func (wc *WebController)GetName () string {
+func (wc *WebController) GetName() string {
 	return "Web Controller"
 }
 
@@ -32,16 +30,11 @@ type Indexer interface {
 type AppController struct {
 	*WebController
 	Indexer
-
-	// Will not compile
-	// PPS
-	// *PPS
-	// *Indexer
 }
 
 type IndexString string
 
-func (hs IndexString) Index()  {
+func (hs IndexString) Index() {
 	fmt.Println("Index Page")
 }
 
