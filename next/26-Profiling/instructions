@@ -1,0 +1,19 @@
+import _ "net/http/pprof"
+go func() {
+		log.Println(http.ListenAndServe("localhost:6060", nil))
+	}()
+go tool pprof http://localhost:6060/debug/pprof/heap
+
+go tool pprof http://localhost:6060/debug/pprof/goroutine
+
+go tool pprof -png http://localhost:6060/debug/pprof/heap > out.png
+
+interactive top
+
+
+import (
+    //...
+	"github.com/pkg/profile"
+)
+defer profile.Start().Stop()
+go tool pprof -pdf -output ./out.pdf http://localhost:6060/debug/pprof/heap
