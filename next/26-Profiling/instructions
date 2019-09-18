@@ -1,3 +1,13 @@
+One
+import (
+    //...
+	"github.com/pkg/profile"
+)
+defer profile.Start().Stop()
+
+
+Two
+
 import _ "net/http/pprof"
 go func() {
 		log.Println(http.ListenAndServe("localhost:6060", nil))
@@ -10,10 +20,16 @@ go tool pprof -png http://localhost:6060/debug/pprof/heap > out.png
 
 interactive top
 
-
-import (
-    //...
-	"github.com/pkg/profile"
-)
-defer profile.Start().Stop()
 go tool pprof -pdf -output ./out.pdf http://localhost:6060/debug/pprof/heap
+http://localhost:6060/debug/pprof/goroutine
+http://localhost:6060/debug/pprof/heap
+http://localhost:6060/debug/pprof/threadcreate
+http://localhost:6060/debug/pprof/block
+http://localhost:6060/debug/pprof/mutex
+and also 2 more: the CPU profile and the CPU trace.
+
+http://localhost:6060/debug/pprof/profile
+http://localhost:6060/debug/pprof/trace?seconds=5
+
+
+
